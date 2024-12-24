@@ -2,7 +2,7 @@
 
 ## Overview
 
-Log Realtime Analysis is a robust real-time log aggregation and visualization system designed to handle high-throughput logs using a Kafka-Spark ETL pipeline. For example, it can process application logs tracking user requests, error rates, and API response times in real-time. It integrates with DynamoDB for real-time metrics storage and visualizes key system insights using Python Dash. The setup leverages Docker for containerized deployment, ensuring seamless development and deployment workflows.
+Log Realtime Analysis is a robust real-time log aggregation and visualization system designed to handle high-throughput logs using a Kafka-Spark ETL pipeline. For example, it can process application logs tracking user requests, error rates, and API response times in real-time. It integrates with DynamoDB for real-time metrics storage and visualizes key system insights using Python and Dash Library. The setup uses Docker for containerized deployment, ensuring seamless development and deployment workflows.
 
 ## Features
 

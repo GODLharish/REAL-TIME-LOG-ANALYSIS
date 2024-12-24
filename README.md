@@ -132,8 +132,6 @@ The Python Dash application provides an intuitive interface for monitoring real-
 - `kafka/kafka_producer.py`: Script for simulating logs
 - `spark/spark-portfolio.ipynb`: Consumes granular logs from the topic `logging_info` and  aggregates the log data by minute intervals, computes statistics (count, avg, max, min response times), and streams the results in JSON format to the Kafka topic`agg_logging_info`
 - `spark/spark_kafka.py`: Consumes log messages from a Kafka topic, parses them, and stores aggregated log metrics into a DynamoDB table.
-- `.gitignore`: Configuration to ignore unnecessary files and directories.
-
 
 
 ## Future Enhancements
@@ -142,19 +140,13 @@ The Python Dash application provides an intuitive interface for monitoring real-
 - Add support for multiple regions in DynamoDB.
 - Implement alerting (sms and email) for SLA breaches.
 - Enhance dashboard for customizable user settings.
-
 ---
 
 ## License
-
 This project is licensed under the MIT License.
-
 ---
 
 ## Contributors
-
-- **Ronald Nyasha Kanyepi** - [GitHub](https://github.com/ronaldkanyepi)
-
-For any inquiries, please contact [[kanyepironald@gmail.com](mailto\:kanyepironald@gmail.com)].
+- **Ronald Nyasha Kanyepi** - [GitHub](https://github.com/ronaldkanyepi). For any inquiries, please contact [kanyepironald@gmail.com](mailto\:kanyepironald@gmail.com).
 
 

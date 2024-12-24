@@ -104,13 +104,13 @@ The Python Dash application provides an intuitive interface for monitoring real-
    Open `http://localhost:8888` or check the logs for the notebook in Docker for the full URL
 3. **Run the Dash App:**
    ```bash
-   python ui\ui-prod.py
+   python ui/ui-prod.py
    ```
    Access the dashboard at `http://127.0.0.1:8050`.
 4. **Kafka Setup:**
    - Create topics:
      ```bash
-     python kafka\kafka_producer.py
+     python kafka/kafka_producer.py
      ```
 
 ---

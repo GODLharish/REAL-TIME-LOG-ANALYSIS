@@ -12,7 +12,7 @@ load_figure_template("darkly")
 
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.DARKLY])
-app.title = 'Money'
+app.title = 'Log Realtime Analysis'
 app._favicon = ('money.png')
 
 

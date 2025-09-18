@@ -2,13 +2,13 @@
 
 ## Overview
 
-Log Realtime Analysis is a robust real-time log aggregation and visualization system designed to handle high-throughput logs using a Kafka-Spark ETL pipeline. For example, it can process application logs tracking user requests, error rates, and API response times in real-time. It integrates with DynamoDB for real-time metrics storage and visualizes key system insights using Python and Dash Plotly Library. The setup uses Docker for containerized deployment, ensuring seamless development and deployment workflows.
+Log Realtime Analysis is a robust real-time log aggregation and visualization system designed to handle high-throughput logs using a Kafka-Spark ETL pipeline. For example, it can process application logs tracking user requests, error rates, and API response times in real-time. It integrates with MySQL for real-time metrics storage and visualizes key system insights using Python and Dash Plotly Library. The setup uses Docker for containerized deployment, ensuring seamless development and deployment workflows.
 
 ## Features
 
 - **Log Ingestion:** High-throughput log streaming with Kafka.
 - **Real-Time Aggregation:** Spark processes logs per minute for metrics like request counts, error rates, and response times.
-- **Metrics Storage:** Aggregated metrics stored in DynamoDB for fast querying. DynamoDB is optimized for low-latency, high-throughput queries, making it ideal for real-time dashboard applications.
+- **Metrics Storage:** Aggregated metrics stored in MySQL for fast querying. MySQL is optimized for low-latency, high-throughput queries, making it ideal for real-time dashboard applications.
 - **Data Storage:** Historical logs saved in HDFS as Parquet files for long-term analysis.
 - **Interactive Dashboard:** Dash application with real-time updates and SLA metrics visualization.
 
@@ -22,7 +22,7 @@ Log Realtime Analysis is a robust real-time log aggregation and visualization sy
    - **Output Topic:** `agg_logging_info` with structured metrics.
 
 3. **Downstream Processing**
-   - **DynamoDB:** Stores real-time metrics for dashboards with low-latency queries.
+   - **MySQL:** Stores real-time metrics for dashboards with low-latency queries.
    - **HDFS:** Stores aggregated logs in Parquet format for long-term analysis.
 
 4. **Visualization with Python Dash**
@@ -45,16 +45,31 @@ Log Realtime Analysis is a robust real-time log aggregation and visualization sy
 - **Ports:** `9092:9092`, `29092:29092`
 - **Volume:** `${HOST_SHARED_DIR}/kafka:/bitnami/kafka`
 
-### DynamoDB Local
+### MySQL Local
 
-- **Image:** `amazon/dynamodb-local:latest`
-- **Ports:** `8000:8000`
-- **Volume:** `${HOST_SHARED_DIR}/dynamodb-local:/data`
+Image: mysql:latest
 
-### DynamoDB Admin
+Ports: 3306:3306
 
-- **Image:** `aaronshaf/dynamodb-admin`
-- **Ports:** `8001:8001`
+Environment:
+
+MYSQL_ROOT_PASSWORD=my-secret-pw
+
+(Optionally add MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD)
+
+Volume: ${HOST_SHARED_DIR}/mysql-data:/var/lib/mysql
+
+### MySQL Admin (phpMyAdmin)
+
+Image: phpmyadmin/phpmyadmin:latest
+
+Ports: 8080:80
+
+Environment:
+
+PMA_HOST=mysql
+
+PMA_PORT=3306
 
 ### Spark Jupyter
 - **Image:** `jupyter/all-spark-notebook:python-3.11.6`
